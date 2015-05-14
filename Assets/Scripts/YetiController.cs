@@ -72,6 +72,10 @@ public class YetiController : MonoBehaviour {
 
 		if (_jump) {
 			_jump=false;
+			if(_grounded)
+			{
+				// Put code belower here to precent flying mode.
+			}
 			_rigidBody.AddForce(new Vector2(0,1500));
 
 			_animator.SetTrigger("Jumping");

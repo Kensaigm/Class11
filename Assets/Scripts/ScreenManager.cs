@@ -9,7 +9,8 @@ public class ScreenManager : MonoBehaviour
     //Unity will tell us otherwise (ie if its a resume)
     private bool _gameJustLaunched = true;
     private bool _showResume;
-    private GameObject _paused;
+	[SerializeField]
+    private GameObject _pauseScreen;
 
     public bool Paused { get; set; }
 
@@ -49,9 +50,9 @@ public class ScreenManager : MonoBehaviour
     {
         //Dont need a ref to the texture (guitexture), just the container (gameobject)
         //pause game object has a guitexture in it. Its position (transform) should be .5x, .5y to center
-        _paused = GameObject.FindGameObjectWithTag("Pause");
+        //_paused = GameObject.FindGameObjectWithTag("Pause");
         //Disable it as soon as we start game - ie hide it.
-        _paused.SetActive(false);
+        //_paused.SetActive(false);
     }
 
     // Update is called once per frame
@@ -80,7 +81,6 @@ public class ScreenManager : MonoBehaviour
         _originalTimeScale = Time.timeScale;
         Time.timeScale = 0;
         Paused = true;
-        _paused.SetActive(Paused);
     }
 
     // Unpause the game
@@ -97,7 +97,6 @@ public class ScreenManager : MonoBehaviour
         // Return game's timescale to original value
         Time.timeScale = _originalTimeScale;
         Paused = false;
-        _paused.SetActive(Paused);
     }
 
 
