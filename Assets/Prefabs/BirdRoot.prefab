@@ -27,6 +27,7 @@ GameObject:
   - 4: {fileID: 499034}
   - 95: {fileID: 9599036}
   - 114: {fileID: 11499036}
+  - 61: {fileID: 6199496}
   m_Layer: 0
   m_Name: BirdMoving
   m_TagString: Untagged
@@ -42,6 +43,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 499036}
+  - 61: {fileID: 6182392}
+  - 114: {fileID: 11499496}
   m_Layer: 0
   m_Name: BirdRoot
   m_TagString: Untagged
@@ -81,12 +84,34 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.1272163, y: -1.97393107, z: 0}
+  m_LocalPosition: {x: -27.1000004, y: 3.79999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 499034}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6182392
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199036}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 5.76617002, y: 3.257658}
+  m_Center: {x: .0418128967, y: .0418100357}
+--- !u!61 &6199496
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199034}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 4.42830181, y: 2.33787155}
+  m_Center: {x: -.376277924, y: -.668935776}
 --- !u!95 &9599034
 Animator:
   serializedVersion: 3
@@ -126,6 +151,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b02b7d7dbe03f5c45bcd16b01f4dee04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11499496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199036}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0029039c748e584697c4405c64ac2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21299036

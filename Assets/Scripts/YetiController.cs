@@ -8,13 +8,21 @@ public class YetiController : MonoBehaviour {
 	private int _health;
 	private bool _jump; 
 	private bool _grounded;
+	private bool _dead;
+	private GameController _gameController;
 
 
 	// Use this for initialization
 	void Start () {
 		_rigidBody = GetComponent<Rigidbody2D> ();
 		_animator = GetComponent<Animator> ();
+		_gameController = GameObject
+			.FindGameObjectWithTag ("GameController")
+			.GetComponent<GameController>();
 
+		// Two line method
+		// var gc = GameObject.FindGameObjectWithTag("GameController");
+		// _gameController = gc.GetComponent<GameController>();
 	}
 	
 	// Update is called once per frame
@@ -32,8 +40,35 @@ public class YetiController : MonoBehaviour {
 
 	}
 
+
+	void OnTriggerEnter2D(Collider2D collider)
+	{
+		if (collider.gameObject.tag == "Border") 
+		{
+			StartCoroutine(CoYetiDie());
+			_dead = true;
+		}
+
+		// Yeti Dies
+		// Destroy (collider.gameObject);
+	}
+
+	IEnumerator CoYetiDie()
+	{
+		yield return new WaitForSeconds (2);
+		_rigidBody.isKinematic = true;
+		_gameController.PlayerDied ();
+
+	}
+
 	void FixedUpdate() {
 		var speed = 20;
+
+		if (_dead) {
+		//	GetComponent<Rigidbody2D>()
+		//	_rigidBody.isKinematic = true;
+			return;
+		}
 
 		if (_jump) {
 			_jump=false;

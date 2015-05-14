@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour {
 
 	private int _score;
+	[SerializeField]
+	private GameObject GameOverPanel;
 	public Text ScoreText;
 
 
@@ -16,7 +18,10 @@ public class GameController : MonoBehaviour {
 		ScoreText.text = "Score: " + _score;
 	}
 
-
+	public void PlayerDied()
+	{
+		GameOverPanel.SetActive (true);
+	}
 
 
 	// Use this for initialization
